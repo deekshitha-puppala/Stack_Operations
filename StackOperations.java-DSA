@@ -1,0 +1,85 @@
+public class Stackoperations
+{
+    final static int MAXSIZE = 8;
+    static int stack[] = new int[MAXSIZE];
+    static int top = -1;
+    // To check whether stack is full
+    public static int isFull()
+    {
+        if(top == MAXSIZE)
+        {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+  // To check statck is empty or not
+    public static int isEmpty()
+    {
+        if(top==-1)
+        {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+  //to delete the elements from the stack
+    public static int pop()
+    {
+        int data=0;
+        if(isEmpty() != 1)
+        {
+            data = stack[top];
+            top = top - 1;
+            return data;
+        }
+        else{
+            System.out.println("Stack is empty.");
+        }
+        return data;
+    }
+  // To push the elements into the stack
+    public static int push(int data)
+    {
+        if(isFull() != 1)
+        {
+            top = top + 1;
+            stack[top] = data;   
+        }
+        else
+        {
+            System.out.println("Stack is full!");
+        }
+        return data;
+    }
+
+    public static int peek()
+        {
+            return stack[top];
+        }
+public static void main(String args[])
+{
+    int i;
+    push(10);
+    push(20);
+    push(30);
+    push(40);
+    push(50);
+  //To dispaly the topmost element in stack
+    System.out.println("the topmost ele in stack:"+peek());
+
+    System.out.print("Elements: \n");
+    for(i=0;i<=MAXSIZE-1;i++)
+    {
+        System.out.print(stack[i]+" ");
+    }
+    System.out.print("\npopped: ");
+    
+    while(isEmpty()!=1)
+    //data = pop();
+    System.out.print(pop()+" ");
+    
+}
+}
